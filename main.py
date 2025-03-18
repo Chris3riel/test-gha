@@ -7,6 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app import crud, models, schemas
 from app.api import deps
+
 router = APIRouter()
 
 
@@ -22,10 +23,17 @@ def read_items(
 ) -> Any:
 
     if crud.user.is_superuser(current_user):
-        items = crud.item.get_multi(db, skip=skip, limit=limit,filter=filter,order_by=order_by,include=include)
+        items = crud.item.get_multi(
+            db,
+            skip=skip,
+            limit=limit,
+            filter=filter,
+            order_by=order_by,
+            include=include,
+        )
     else:
         items = crud.item.get_multi_by_owner(
-            db=db,   skip=skip, limit=limit,filter=filter
+            db=db, skip=skip, limit=limit, filter=filter
         )
 
     return items
@@ -36,7 +44,6 @@ def create_item(
     *,
     db: Session = Depends(deps.get_db),
     item_in: schemas.itemCreate,
-
 ) -> Any:
 
     item = crud.item.create_with_owner(db=db, obj=item_in)
