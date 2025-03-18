@@ -1,8 +1,7 @@
 # Proyecto con FastAPI
 
-from typing import Any, List, Optional
+from typing import Any
 
-from io import BytesIO
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app import crud, models, schemas
