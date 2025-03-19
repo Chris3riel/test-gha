@@ -46,5 +46,7 @@ jobs:
           flake8 .
 
       - name: Run tests
-        run: pytest --maxfail=5 --disable-warnings
+        run: |
+          pip install pytest 
+          pytest --maxfail=5 --disable-warnings
 
