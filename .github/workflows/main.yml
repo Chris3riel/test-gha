@@ -48,6 +48,7 @@ jobs:
       - name: Run tests
         run: |
           pip install pytest 
+          pip install httpx
           pytest --maxfail=5 --disable-warnings
 
       - name: Install Pytest-cov
