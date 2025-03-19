@@ -44,11 +44,15 @@ jobs:
         run: |
           pip install flake8
           flake8 .
+      
+      - name: Install fastapi
+        run: |
+          pip intall httpx
+          pip install fastapi
 
       - name: Run tests
         run: |
-          pip install pytest 
-          pip install httpx
+          pip install pytest
           pytest --maxfail=5 --disable-warnings
 
       - name: Install Pytest-cov
