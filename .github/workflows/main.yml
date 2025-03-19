@@ -50,3 +50,12 @@ jobs:
           pip install pytest 
           pytest --maxfail=5 --disable-warnings
 
+      - name: Install Pytest-cov
+        run: pip install pytest-cov
+
+      - name: Run test with coverage (Pruebas de cobertura)
+        run: pytest --cov=src
+
+      - name: Generate coverage report
+        run: pytest --cov=src --cov-report=term-missing
+
