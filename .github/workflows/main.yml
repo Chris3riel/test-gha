@@ -47,7 +47,7 @@ jobs:
       
       - name: Install fastapi
         run: |
-          pip intall httpx
+          pip install httpx
           pip install fastapi
 
       - name: Run tests
