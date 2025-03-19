@@ -82,3 +82,4 @@ def delete_item(
 
     item = crud.item.remove(db=db, id=id)
     return item
+
